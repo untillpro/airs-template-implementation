@@ -27,12 +27,7 @@ import (
 
 func start(t *testing.T) (context.Context, error) {
 
-	// Require iservices interface
-
-	godif.Require(&iservices.InitAndStart)
-	godif.Require(&iservices.StopAndFinit)
-
-	// Provice iservices interface
+	// Provide iservices interface
 	services.Declare()
 
 	// Declare own service
