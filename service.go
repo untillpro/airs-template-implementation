@@ -13,7 +13,6 @@ import (
 )
 
 type service struct {
-	params *Params
 }
 
 type contextKeyType string
