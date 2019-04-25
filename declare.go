@@ -16,5 +16,6 @@ import (
 // Declare s.e.
 func Declare(/*args*/) {
 	godif.ProvideSliceElement(&iservices.Services, &service{/*service-args*/})
-	// godif.Provide(&i???.Func, implFunc)
+
+	//godif.Provide(&???.???, implFunc)
 }

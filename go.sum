@@ -15,3 +15,5 @@ github.com/untillpro/gochips v1.9.0 h1:RpvKppiix6uzKSVBBQNlrD17dk7QCtVLw3EBNDOH5
 github.com/untillpro/gochips v1.9.0/go.mod h1:us8QSJtQx+8SiWFqh2oAT7UMzhF73t21p3WFGn6Apao=
 github.com/untillpro/godif v0.6.0 h1:l2Beau5WUAgXuCxf+ImimTKksTc3CRqDbcyB2xwGj90=
 github.com/untillpro/godif v0.6.0/go.mod h1:v/TEwBrNu5MAS/1ylN50PikeZvPyMKjj8SeODKqIbpw=
+github.com/untillpro/godif v0.7.0 h1:sDphLS6X66QrkBT6ACZ9ka+ByYKRdlnkzCcqhPsvZGE=
+github.com/untillpro/godif v0.7.0/go.mod h1:v/TEwBrNu5MAS/1ylN50PikeZvPyMKjj8SeODKqIbpw=

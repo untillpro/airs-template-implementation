@@ -16,7 +16,7 @@ package iconfigcon
 import (
 	"context"
 	"testing"
-
+	"github.com/stretchr/testify/require"
 	"github.com/untillpro/godif"
 	gc "github.com/untillpro/gochips"
 	"github.com/untillpro/godif/iservices"
@@ -52,9 +52,7 @@ func start(t *testing.T) (context.Context, error) {
 	Declare()
 
 	errs := godif.ResolveAll()
-	if len(errs) > 0 {
-		t.Fatal("Resolve problem", errs)
-	}
+	require.True(t, len(errs) == 0, "Resolve problem", errs)
 
 	ctx := context.Background()
 	ctx, err := iservices.Start(ctx)
