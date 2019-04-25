@@ -9,7 +9,6 @@ package iconfigcon
 
 import (
 	"context"
-	gc "github.com/untillpro/gochips"
 )
 
 type service struct {
@@ -19,20 +18,12 @@ type contextKeyType string
 
 const contextKey = contextKeyType("contextKey")
 
-// Init s.e.
-func (s *service) Init(ctx context.Context) (context.Context, error) {
+// Start s.e.
+func (s *service) Start(ctx context.Context) (context.Context, error) {
 	return ctx, nil
-}
-
-func (s *service) Start(ctx context.Context) error {
-	return nil
 }
 
 // Stop s.e.
 func (s *service) Stop(ctx context.Context) {
 
-}
-
-// Finit s.e.
-func (s *service) Finit(ctx context.Context) {
 }

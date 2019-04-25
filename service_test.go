@@ -15,34 +15,54 @@ package iconfigcon
 
 import (
 	"context"
-	"fmt"
 	"testing"
 
-	gc "github.com/untillpro/gochips"
 	"github.com/untillpro/godif"
+	gc "github.com/untillpro/gochips"
 	"github.com/untillpro/godif/iservices"
 	"github.com/untillpro/godif/services"
 )
 
 
+func Test_StartStop(t *testing.T){
+	ctx, err := start(t)
+	gc.FatalIfError(t, err, "start failed")
+
+
+	/*
+
+		Your tests here
+
+	*/
+
+
+	defer stop(ctx, t)
+}
+
 func start(t *testing.T) (context.Context, error) {
 
 	// Provide iservices interface
+
+	godif.Require(&iservices.Start)
+	godif.Require(&iservices.Stop)
+
 	services.Declare()
 
 	// Declare own service
-	Declare(args)
+	Declare()
 
 	errs := godif.ResolveAll()
-	gc.FatalIfError(t, errs, "Resolve problem")
+	if len(errs) > 0 {
+		t.Fatal("Resolve problem", errs)
+	}
 
 	ctx := context.Background()
-	ctx, err := iservices.InitAndStart(ctx)
+	ctx, err := iservices.Start(ctx)
 	return ctx, err
 
 }
 
 func stop(ctx context.Context, t *testing.T) {
-	iservices.StopAndFinit(ctx)
+	iservices.Stop(ctx)
 	godif.Reset()
 }

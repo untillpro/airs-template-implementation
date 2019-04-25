@@ -9,7 +9,6 @@ package iconfigcon
 
 import (
 	"context"
-	gc "github.com/untillpro/gochips"
 )
 
 
