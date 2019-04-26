@@ -10,13 +10,15 @@ package iconfigcon
 import (
 	"testing"
 
-	"github.com/untillpro/airs-iconfig"
+	"github.com/stretchr/testify/require"
 )
 
 func Test_Impl(t *testing.T) {
-	ctx, _ := start(t)
+	ctx := start(t)
 	defer stop(ctx, t)
 
-    iconfig.TestImpl(ctx, t)
+	require.True(t, implFunc(ctx))
+
+	//iconfig.TestImpl(ctx, t)
 
 }

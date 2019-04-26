@@ -15,49 +15,40 @@ package iconfigcon
 
 import (
 	"context"
+	"log"
 	"testing"
+
 	"github.com/stretchr/testify/require"
 	"github.com/untillpro/godif"
-	gc "github.com/untillpro/gochips"
 	"github.com/untillpro/godif/iservices"
 	"github.com/untillpro/godif/services"
 )
 
+func Test_StartStop(t *testing.T) {
+	ctx := start(t)
+	defer stop(ctx, t)
 
-func Test_StartStop(t *testing.T){
-	ctx, err := start(t)
-	gc.FatalIfError(t, err, "start failed")
-
+	log.Println("### Service:", *getService(ctx))
 
 	/*
-
 		Your tests here
-
 	*/
-
-
-	defer stop(ctx, t)
 }
 
-func start(t *testing.T) (context.Context, error) {
+func start(t *testing.T) context.Context {
 
 	// Provide iservices interface
-
-	godif.Require(&iservices.Start)
-	godif.Require(&iservices.Stop)
-
-	services.Declare()
+	services.DeclareRequire()
 
 	// Declare own service
-	Declare()
+	Declare(Service{Host: "localhost", Port: 800})
 
 	errs := godif.ResolveAll()
 	require.True(t, len(errs) == 0, "Resolve problem", errs)
 
-	ctx := context.Background()
-	ctx, err := iservices.Start(ctx)
-	return ctx, err
-
+	ctx, err := iservices.Start(context.Background())
+	require.Nil(t, err)
+	return ctx
 }
 
 func stop(ctx context.Context, t *testing.T) {

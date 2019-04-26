@@ -9,9 +9,12 @@ package iconfigcon
 
 import (
 	"context"
+
+	gc "github.com/untillpro/gochips"
 )
 
-
-func implFunc(ctx context.Context){
-
+func implFunc(ctx context.Context) bool {
+	service := getService(ctx)
+	gc.Info("iconfigcon.implFunc", *service)
+	return true
 }
