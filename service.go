@@ -13,12 +13,6 @@ import (
 	gc "github.com/untillpro/gochips"
 )
 
-// Service s.e.
-type Service struct {
-	Host string
-	Port int
-}
-
 type contextKeyType string
 
 const contextKey = contextKeyType("contextKey")

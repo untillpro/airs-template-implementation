@@ -12,6 +12,12 @@ import (
 	"github.com/untillpro/godif/iservices"
 )
 
+// Service s.e.
+type Service struct {
+	Host string
+	Port int
+}
+
 // Declare s.e.
 func Declare(service Service) {
 	godif.ProvideSliceElement(&iservices.Services, &service)
