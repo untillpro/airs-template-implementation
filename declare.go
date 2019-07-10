@@ -9,7 +9,7 @@ package iconfigcon
 
 import (
 	"github.com/untillpro/godif"
-	"github.com/untillpro/godif/iservices"
+	"github.com/untillpro/godif/services"
 )
 
 // Service s.e.
@@ -20,7 +20,7 @@ type Service struct {
 
 // Declare s.e.
 func Declare(service Service) {
-	godif.ProvideSliceElement(&iservices.Services, &service)
+	godif.ProvideSliceElement(&services.Services, &service)
 
 	//godif.Provide(&???.???, implFunc)
 }

@@ -15,43 +15,33 @@ package iconfigcon
 
 import (
 	"context"
-	"log"
 	"testing"
 
 	"github.com/stretchr/testify/require"
-	"github.com/untillpro/godif"
-	"github.com/untillpro/godif/iservices"
+	intf "github.com/untillpro/airs-istorage"
 	"github.com/untillpro/godif/services"
 )
 
 func Test_StartStop(t *testing.T) {
-	ctx := start(t)
-	defer stop(ctx, t)
-
-	log.Println("### Service:", *getService(ctx))
+	ctx, err := setUp(t)
+	defer tearDown(ctx, t)
+	require.Nil(t, err, err)
 
 	/*
 		Your tests here
 	*/
 }
 
-func start(t *testing.T) context.Context {
-
-	// Provide iservices interface
-	services.DeclareRequire()
+func setUp(t *testing.T) (context.Context, error) {
 
 	// Declare own service
 	Declare(Service{Host: "localhost", Port: 800})
 
-	errs := godif.ResolveAll()
-	require.True(t, len(errs) == 0, "Resolve problem", errs)
+	intf.DeclareForTest()
 
-	ctx, err := iservices.Start(context.Background())
-	require.Nil(t, err)
-	return ctx
+	return services.ResolveAndStart()
 }
 
-func stop(ctx context.Context, t *testing.T) {
-	iservices.Stop(ctx)
-	godif.Reset()
+func tearDown(ctx context.Context, t *testing.T) {
+	services.StopAndReset(ctx)
 }

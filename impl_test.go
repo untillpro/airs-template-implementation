@@ -11,14 +11,13 @@ import (
 	"testing"
 
 	"github.com/stretchr/testify/require"
+	intf "github.com/untillpro/airs-istorage"
 )
 
 func Test_Impl(t *testing.T) {
-	ctx := start(t)
-	defer stop(ctx, t)
+	ctx, err := setUp(t)
+	defer tearDown(ctx, t)
+	require.Nil(t, err, err)
 
-	require.True(t, implFunc(ctx))
-
-	//iconfig.TestImpl(ctx, t)
-
+	intf.TestImpl(ctx, t)
 }
