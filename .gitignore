@@ -10,5 +10,9 @@
 
 # Output of the go coverage tool, specifically when used with LiteIDE
 *.out
-*.o
+o
 .*/
+
+# But not .github
+!/.github
+
