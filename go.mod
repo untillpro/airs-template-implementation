@@ -1,12 +1,10 @@
-module airs-i-impl-template
+// TODO change module name
 
-go 1.12
+module github.com/untillpro/itemplate
+
+go 1.16
 
 require (
-	github.com/google/go-cmp v0.3.0 // indirect
-	github.com/stretchr/testify v1.3.0
-	github.com/untillpro/airs-iconfig v0.0.0-20190619130446-a72eff7cb94f
-	github.com/untillpro/airs-istorage v0.10.0
-	github.com/untillpro/gochips v1.10.0
-	github.com/untillpro/godif v0.12.0
+	github.com/stretchr/testify v1.7.0
+	github.com/untillpro/godif v0.18.0
 )

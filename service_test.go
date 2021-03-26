@@ -18,8 +18,9 @@ import (
 	"testing"
 
 	"github.com/stretchr/testify/require"
-	intf "github.com/untillpro/airs-istorage"
 	"github.com/untillpro/godif/services"
+
+//	intf "github.com/untillpro/airs-istorage"
 )
 
 func Test_StartStop(t *testing.T) {
@@ -35,9 +36,9 @@ func Test_StartStop(t *testing.T) {
 func setUp(t *testing.T) (context.Context, error) {
 
 	// Declare own service
-	Declare(Service{Host: "localhost", Port: 800})
+	Declare(Params{Host: "localhost", Port: 800})
 
-	intf.DeclareForTest()
+	// intf.DeclareForTest()
 
 	return services.ResolveAndStart()
 }

@@ -11,7 +11,7 @@ import (
 	"testing"
 
 	"github.com/stretchr/testify/require"
-	intf "github.com/untillpro/airs-istorage"
+	// intf "github.com/untillpro/airs-istorage"
 )
 
 func Test_Impl(t *testing.T) {
@@ -19,5 +19,5 @@ func Test_Impl(t *testing.T) {
 	defer tearDown(ctx, t)
 	require.Nil(t, err, err)
 
-	intf.TestImpl(ctx, t)
+	//intf.TestImpl(ctx, t)
 }
