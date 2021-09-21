@@ -1,14 +1,8 @@
 /*
- * Copyright (c) 2019-present unTill Pro, Ltd. and Contributors
+ * Copyright (c) <year>-present unTill Pro, Ltd.
  */
 
-/*
-
-	Test service start/stop here
-
-*/
-
-package iconfigcon
+package itemplate
 
 import (
 	"context"
